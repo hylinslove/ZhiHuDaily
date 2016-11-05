@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3b3232"
+    tools:context="demo.liuchen.com.zhihudiary.view.activity.SplashActivity">
+
+    <ImageView
+        android:id="@+id/bg_Splash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_splash"
+        />
+
+
+
+    <ImageView
+        android:id="@+id/bottom_Splash"
+        android:src="@drawable/splash_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:scaleType="centerCrop"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/timeText"
+        android:textColor="@color/commom_white"
+        android:background="@drawable/time_bg"
+        android:padding="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:textSize="14dp"
+        />
+
+</RelativeLayout>

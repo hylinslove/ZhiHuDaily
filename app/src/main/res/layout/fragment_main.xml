@@ -1,0 +1,86 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="demo.liuchen.com.zhihudiary.view.fragment.MainFragment">
+
+
+    <!--主界面-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:title="@string/main"
+        app:navigationIcon="@drawable/nav_icon"
+        app:titleTextColor="@color/white">
+    </android.support.v7.widget.Toolbar>
+
+    <!--可刷新的scrollView-->
+
+    <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
+        android:id="@+id/refresh_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ededed"
+        >
+        <demo.liuchen.com.zhihudiary.view.myView.AutoLoadScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scroll_main">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <!--轮播图,以及下方的指示圆点-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"/>
+                <com.viewpagerindicator.CirclePageIndicator
+                    android:id="@+id/vp_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="7dp"
+                    app:centered="true"
+                    app:radius="4dp"
+                    app:snap="true"
+                    app:pageColor="#949494"
+                    app:strokeWidth="0dp"
+                    app:fillColor="@color/colorPrimaryDark"
+                    />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                android:textSize="16sp"
+                android:textColor="@color/readed"
+                android:padding="12dp"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        </LinearLayout>
+        </demo.liuchen.com.zhihudiary.view.myView.AutoLoadScrollView>
+    </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
+
+
+    
+</LinearLayout>
