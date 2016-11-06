@@ -2,7 +2,7 @@ package demo.liuchen.com.zhihudiary.model.impl;
 
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.model.model.IModelMain;
-import demo.liuchen.com.zhihudiary.presenter.DataGetListener;
+import demo.liuchen.com.zhihudiary.presenter.listener.DataGetListener;
 import demo.liuchen.com.zhihudiary.service.GetDataService;
 import demo.liuchen.com.zhihudiary.util.Constant;
 import retrofit2.Retrofit;

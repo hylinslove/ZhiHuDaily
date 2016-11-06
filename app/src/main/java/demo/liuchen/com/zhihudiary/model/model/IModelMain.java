@@ -1,6 +1,6 @@
 package demo.liuchen.com.zhihudiary.model.model;
 
-import demo.liuchen.com.zhihudiary.presenter.DataGetListener;
+import demo.liuchen.com.zhihudiary.presenter.listener.DataGetListener;
 
 /**
  * Created by meng on 2016/11/3.

@@ -1,1 +1,1 @@
-include ':app', ':indicator', ':pull_to_refresh'
+include ':app', ':indicator'

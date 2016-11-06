@@ -1,5 +1,6 @@
 package demo.liuchen.com.zhihudiary.view.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -43,6 +44,7 @@ import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
  * 主界面的碎片:
  * 1.banner轮播图
  * 2.新闻列表
+ *
  */
 
 public class MainFragment extends Fragment implements IViewMain {

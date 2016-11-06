@@ -2,6 +2,7 @@ package demo.liuchen.com.zhihudiary.presenter;
 
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.model.impl.ModelMain;
+import demo.liuchen.com.zhihudiary.presenter.listener.DataGetListener;
 import demo.liuchen.com.zhihudiary.view.IViewMain;
 
 /**

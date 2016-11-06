@@ -1,8 +1,8 @@
 package demo.liuchen.com.zhihudiary.model.impl;
 
-import demo.liuchen.com.zhihudiary.model.bean.StoryBean;
-import demo.liuchen.com.zhihudiary.model.model.IModelStory;
-import demo.liuchen.com.zhihudiary.presenter.listener.DetailGetListener;
+import demo.liuchen.com.zhihudiary.model.bean.TitleBean;
+import demo.liuchen.com.zhihudiary.model.model.IModeTitle;
+import demo.liuchen.com.zhihudiary.presenter.listener.TitleDataListener;
 import demo.liuchen.com.zhihudiary.service.GetDataService;
 import demo.liuchen.com.zhihudiary.util.Constant;
 import retrofit2.Retrofit;
@@ -13,35 +13,33 @@ import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by meng on 2016/11/4.
+ * Created by Administrator on 2016/11/5.
  */
 
-public class ModelStory implements IModelStory {
-
+public class ModelTitle implements IModeTitle{
     private Retrofit retrofit;
+
     Retrofit.Builder builder = new Retrofit.Builder()
             .baseUrl(Constant.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
 
     @Override
-    public void getData(int id, final DetailGetListener detailGetListener) {
-
+    public void getData(final TitleDataListener titleDataListener) {
         retrofit = builder.build();
-        retrofit.create(GetDataService.class).getNewsDetails(id)
+        retrofit.create(GetDataService.class).getTitlesData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<StoryBean>() {
+                .subscribe(new Action1<TitleBean>() {
                     @Override
-                    public void call(StoryBean storyBean) {
-                        detailGetListener.detailGot(storyBean);
+                    public void call(TitleBean titleBean) {
+                        titleDataListener.dataGot(titleBean);
                     }
                 }, new Action1<Throwable>() {
                     @Override
                     public void call(Throwable throwable) {
-                        detailGetListener.detailGotFailure();
+                      titleDataListener.dataGotFailure();
                     }
                 });
-
     }
 }
