@@ -1,7 +1,9 @@
 package demo.liuchen.com.zhihudiary.presenter;
 
+import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.model.impl.ModelMain;
+import demo.liuchen.com.zhihudiary.presenter.listener.BeforeGetListener;
 import demo.liuchen.com.zhihudiary.presenter.listener.DataGetListener;
 import demo.liuchen.com.zhihudiary.view.IViewMain;
 
@@ -53,12 +55,13 @@ public class PresenterMain {
 
     public void getDataFromDB(){
 
+
     }
 
     public void loadMore(String data){
-        modelMain.loadMore(data, new DataGetListener() {
+        modelMain.loadMore(data, new BeforeGetListener() {
             @Override
-            public void dataGot(NewsBean bean) {
+            public void dataGot(BeforeBean bean) {
                 iViewMain.loadMoreSuccess(bean);
             }
 

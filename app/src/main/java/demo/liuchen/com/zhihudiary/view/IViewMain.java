@@ -2,6 +2,7 @@ package demo.liuchen.com.zhihudiary.view;
 
 import java.util.List;
 
+import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 
 /**
@@ -17,6 +18,6 @@ public interface IViewMain {
     void refreshSuccess(NewsBean bean);
     void refreshFailure();
 
-    void loadMoreSuccess(NewsBean bean);
+    void loadMoreSuccess(BeforeBean bean);
     void loadMoreFailure();
 }

@@ -1,5 +1,6 @@
 package demo.liuchen.com.zhihudiary.service;
 
+import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.model.bean.StoryBean;
 import demo.liuchen.com.zhihudiary.model.bean.TitleBean;
@@ -14,13 +15,13 @@ import rx.Observable;
 public interface GetDataService {
 
     @GET("api/4/news/latest")
-    Observable<NewsBean> getNewsBean();
+    Observable<String> getNewsBean();
 
-    @GET("api/4/news/before/{id}")
-    Observable<NewsBean> getBeforeNews(@Path("id") String id);
+    @GET("api/4/news/before/{date}")
+    Observable<String> getBeforeNews(@Path("date") String date);
 
     @GET("api/4/news/{id}")
-    Observable<StoryBean> getNewsDetails(@Path("id") int id);
+    Observable<String> getNewsDetails(@Path("id") int id);
 
     @GET("api/4/themes")
     Observable<TitleBean> getTitlesData();

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import demo.liuchen.com.zhihudiary.R;
+import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.util.ScreenSizeUtils;
 
@@ -36,7 +37,7 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         notifyDataSetChanged();
     }
 
-    public void addData(NewsBean newsBean){
+    public void addData(BeforeBean newsBean){
         this.newsBean.getStories().addAll(newsBean.getStories());
         notifyDataSetChanged();
     }

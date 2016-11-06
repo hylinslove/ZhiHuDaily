@@ -15,6 +15,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import butterknife.ButterKnife;
 import demo.liuchen.com.zhihudiary.R;
 import demo.liuchen.com.zhihudiary.adapter.BannerAdapter;
 import demo.liuchen.com.zhihudiary.adapter.RVadapter;
+import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.presenter.PresenterMain;
 import demo.liuchen.com.zhihudiary.util.NetWorkUtils;
@@ -67,7 +69,7 @@ public class MainFragment extends Fragment implements IViewMain {
     private int index = 0;
     private RVadapter rvAdapter;
     private boolean isLoading = false;
-    private String data;
+    private String date;
     private int nowPages = 1;
 
     //Attach方法中获取宿主Activity的上下文
@@ -90,12 +92,7 @@ public class MainFragment extends Fragment implements IViewMain {
         initRecyclerView();
         initRresh();
         initScrollLoad();
-
-        if (NetWorkUtils.isNetWorkConnected(context)) {
-            presenterMain.getDataFromInternet();
-        } else {
-            presenterMain.getDataFromDB();
-        }
+        presenterMain.getDataFromInternet();
 
         return view;
     }
@@ -103,7 +100,7 @@ public class MainFragment extends Fragment implements IViewMain {
     //首页轮播图返回数据并回调以下方法:
     @Override
     public void bannerDataGot(NewsBean bean) {
-        data = bean.getDate();
+        date = bean.getDate();
         BannerAdapter bannerAdapter = new BannerAdapter(bean, context);
         viewPager.setAdapter(bannerAdapter);
         indicator.setViewPager(viewPager);
@@ -149,6 +146,7 @@ public class MainFragment extends Fragment implements IViewMain {
         rvAdapter.changeData(bean);
         Toast.makeText(context, "刷新成功", Toast.LENGTH_SHORT).show();
         mainWsrefresh.setRefreshing(false);
+        nowPages = 1;
     }
 
     @Override
@@ -159,7 +157,7 @@ public class MainFragment extends Fragment implements IViewMain {
 
     //上拉加载更多内容的数据返回结果:
     @Override
-    public void loadMoreSuccess(NewsBean bean) {
+    public void loadMoreSuccess(BeforeBean bean) {
         rvAdapter.addData(bean);
         Toast.makeText(context, "加载成功", Toast.LENGTH_SHORT).show();
         isLoading = false;
@@ -208,6 +206,7 @@ public class MainFragment extends Fragment implements IViewMain {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setFocusable(false);
     }
 
     //初始化下拉刷新控件
@@ -230,11 +229,18 @@ public class MainFragment extends Fragment implements IViewMain {
         scrollView.setScrollListener(new AutoLoadScrollView.ScrollListener() {
             @Override
             public void onScrollListener(int l, int t, int oldl, int oldt) {
+
+                Log.e("meng","t:"+t );
+                Log.e("meng","my"+(scrollView.getChildAt(0).getMeasuredHeight()
+                        - ScreenSizeUtils.getScreenHeight(MainFragment.this.getActivity())
+                        + toolbar.getMeasuredHeight() ));
+
                 if (!isLoading && scrollView.getChildAt(0).getMeasuredHeight()
                         - ScreenSizeUtils.getScreenHeight(MainFragment.this.getActivity())
-                        + toolbar.getMeasuredHeight() <= t) {
+                        + toolbar.getMeasuredHeight()+60<= t)
+                {
                     isLoading = true;
-                    presenterMain.loadMore(String.valueOf(Integer.parseInt(data) - nowPages++));
+                    presenterMain.loadMore(String.valueOf(Integer.parseInt(date) - nowPages++));
                 }
             }
         });
