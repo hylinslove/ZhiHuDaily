@@ -11,6 +11,9 @@ import com.greendao.DaoSession;
 import com.greendao.NewsDao;
 import com.greendao.StoryDao;
 
+import demo.liuchen.com.zhihudiary.R;
+
+
 
 /**
  * Created by Administrator on 2016/11/1.
@@ -22,7 +25,6 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         context = this;
-
     }
 
 

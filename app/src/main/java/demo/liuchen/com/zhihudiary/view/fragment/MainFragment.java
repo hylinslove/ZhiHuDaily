@@ -34,6 +34,7 @@ import demo.liuchen.com.zhihudiary.adapter.RVadapter;
 import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.presenter.PresenterMain;
+import demo.liuchen.com.zhihudiary.presenter.listener.LoadMoreComplete;
 import demo.liuchen.com.zhihudiary.util.NetWorkUtils;
 import demo.liuchen.com.zhihudiary.util.ScreenSizeUtils;
 import demo.liuchen.com.zhihudiary.view.IViewMain;
@@ -41,15 +42,15 @@ import demo.liuchen.com.zhihudiary.view.activity.StoryActivity;
 import demo.liuchen.com.zhihudiary.view.myView.AutoLoadScrollView;
 import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
 
+
 /**
  * Created by meng on 2016/11/4.
  * 主界面的碎片:
  * 1.banner轮播图
  * 2.新闻列表
- *
  */
 
-public class MainFragment extends Fragment implements IViewMain {
+public class MainFragment extends Fragment implements IViewMain ,LoadMoreComplete {
     @Bind(R.id.recyclerView_main)
     RecyclerView recyclerView;
     @Bind(R.id.viewPager_main)
@@ -83,6 +84,7 @@ public class MainFragment extends Fragment implements IViewMain {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+       
         view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
         presenterMain = new PresenterMain(this);
@@ -90,7 +92,7 @@ public class MainFragment extends Fragment implements IViewMain {
         initToolbar();
         initViewPager();
         initRecyclerView();
-        initRresh();
+        initRefresh();
         initScrollLoad();
         presenterMain.getDataFromInternet();
 
@@ -121,7 +123,7 @@ public class MainFragment extends Fragment implements IViewMain {
     //首页消息列表返回数据并回调以下方法:
     @Override
     public void newsDataGot(final NewsBean bean) {
-        rvAdapter = new RVadapter(context, bean);
+        rvAdapter = new RVadapter(context, bean,this);
         rvAdapter.setItemClickListener(new RVadapter.ItemClickListener() {
             @Override
             public void onclick(int position) {
@@ -160,7 +162,6 @@ public class MainFragment extends Fragment implements IViewMain {
     public void loadMoreSuccess(BeforeBean bean) {
         rvAdapter.addData(bean);
         Toast.makeText(context, "加载成功", Toast.LENGTH_SHORT).show();
-        isLoading = false;
     }
 
     @Override
@@ -210,10 +211,9 @@ public class MainFragment extends Fragment implements IViewMain {
     }
 
     //初始化下拉刷新控件
-    private void initRresh() {
+    private void initRefresh() {
         mainWsrefresh.setColorSchemeColors(Color.WHITE);
         mainWsrefresh.setWaveColor(ContextCompat.getColor(context, R.color.colorPrimary));
-
         mainWsrefresh.setOnRefreshListener(new WaveSwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -229,20 +229,18 @@ public class MainFragment extends Fragment implements IViewMain {
         scrollView.setScrollListener(new AutoLoadScrollView.ScrollListener() {
             @Override
             public void onScrollListener(int l, int t, int oldl, int oldt) {
-
-                Log.e("meng","t:"+t );
-                Log.e("meng","my"+(scrollView.getChildAt(0).getMeasuredHeight()
-                        - ScreenSizeUtils.getScreenHeight(MainFragment.this.getActivity())
-                        + toolbar.getMeasuredHeight() ));
-
                 if (!isLoading && scrollView.getChildAt(0).getMeasuredHeight()
                         - ScreenSizeUtils.getScreenHeight(MainFragment.this.getActivity())
-                        + toolbar.getMeasuredHeight()+60<= t)
-                {
+                        + toolbar.getMeasuredHeight() + 60 <= t) {
                     isLoading = true;
                     presenterMain.loadMore(String.valueOf(Integer.parseInt(date) - nowPages++));
                 }
             }
         });
+    }
+
+    @Override
+    public void LoadMoreCompleted() {
+        isLoading = false;
     }
 }

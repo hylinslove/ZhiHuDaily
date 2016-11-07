@@ -10,7 +10,7 @@ import com.greendao.StoryDao;
 
 import java.util.List;
 
-import de.greenrobot.daogenerator.Query;
+
 import demo.liuchen.com.zhihudiary.app.MyApp;
 import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.StoryBean;

@@ -5,14 +5,17 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+
 
 import demo.liuchen.com.zhihudiary.R;
 import demo.liuchen.com.zhihudiary.view.fragment.MainFragment;
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity {
     private FragmentManager manager = getSupportFragmentManager();
     private FragmentTransaction transition = manager.beginTransaction();
+    private boolean isNight = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +38,20 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.Mode:
+        }
+
+        return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

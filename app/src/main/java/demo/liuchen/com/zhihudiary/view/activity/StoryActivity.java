@@ -82,7 +82,7 @@ public class StoryActivity extends AppCompatActivity implements IViewStory {
 
         //能够和js交互
         webView.getSettings().setBuiltInZoomControls(false);
-        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setAppCacheEnabled(false);
     }

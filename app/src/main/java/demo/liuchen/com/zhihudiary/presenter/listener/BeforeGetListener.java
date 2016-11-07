@@ -8,7 +8,6 @@ import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 
 public interface BeforeGetListener {
 
-
     void dataGot(BeforeBean bean);
     void dataGotFailure();
 

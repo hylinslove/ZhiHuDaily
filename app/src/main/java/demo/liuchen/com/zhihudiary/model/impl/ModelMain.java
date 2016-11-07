@@ -11,7 +11,7 @@ import com.greendao.NewsDao;
 
 import java.util.List;
 
-import de.greenrobot.daogenerator.Query;
+
 import demo.liuchen.com.zhihudiary.app.MyApp;
 import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
@@ -43,8 +43,6 @@ public class ModelMain implements IModelMain {
             .addConverterFactory(ScalarsConverterFactory.create())
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
 
-
-
     @Override
     public void getData(final DataGetListener dataGetListener) {
 
@@ -53,11 +51,10 @@ public class ModelMain implements IModelMain {
                 .build();
         List newses = query.list();
 
-
-        if(newses.size()>0){
+        if (newses.size() > 0) {
 
             News news = (News) newses.get(0);
-            dataGetListener.dataGot(gson.fromJson(news.getJson(),NewsBean.class));
+            dataGetListener.dataGot(gson.fromJson(news.getJson(), NewsBean.class));
 
         }
 
@@ -70,11 +67,11 @@ public class ModelMain implements IModelMain {
                     public NewsBean call(String s) {
 
                         MyApp.getNewsDao().deleteAll();
-                        MyApp.getNewsDao().insert(new News(null,s));
-                        return gson.fromJson(s,NewsBean.class);
+                        MyApp.getNewsDao().insert(new News(null, s));
+                        return gson.fromJson(s, NewsBean.class);
                     }
                 })
-               .subscribe( new Action1<NewsBean>() {
+                .subscribe(new Action1<NewsBean>() {
                     @Override
                     public void call(NewsBean bean) {
                         dataGetListener.dataGot(bean);
@@ -96,9 +93,9 @@ public class ModelMain implements IModelMain {
                 .build();
         List befores = query.list();
 
-        if(befores.size()>0){
+        if (befores.size() > 0) {
             Before before = (Before) befores.get(0);
-            dataGetListener.dataGot(gson.fromJson(before.getJson(),BeforeBean.class));
+            dataGetListener.dataGot(gson.fromJson(before.getJson(), BeforeBean.class));
             return;
         }
 
@@ -109,12 +106,11 @@ public class ModelMain implements IModelMain {
                 .map(new Func1<String, BeforeBean>() {
                     @Override
                     public BeforeBean call(String s) {
-                        MyApp.getBeforeDao().insert(new Before(null,date,s));
-
-                        return gson.fromJson(s,BeforeBean.class);
+                        MyApp.getBeforeDao().insert(new Before(null, date, s));
+                        return gson.fromJson(s, BeforeBean.class);
                     }
                 })
-                .subscribe( new Action1<BeforeBean>() {
+                .subscribe(new Action1<BeforeBean>() {
                     @Override
                     public void call(BeforeBean bean) {
                         dataGetListener.dataGot(bean);

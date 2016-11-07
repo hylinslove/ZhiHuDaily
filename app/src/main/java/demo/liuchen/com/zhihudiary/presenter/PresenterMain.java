@@ -53,10 +53,6 @@ public class PresenterMain {
         });
     }
 
-    public void getDataFromDB(){
-
-
-    }
 
     public void loadMore(String data){
         modelMain.loadMore(data, new BeforeGetListener() {

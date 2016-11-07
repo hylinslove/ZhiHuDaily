@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="demo.liuchen.com.zhihudiary.view.fragment.MainFragment">
-
+    tools:context="demo.liuchen.com.zhihudiary.view.fragment.MainFragment"
+    >
 
     <!--主界面-->
     <android.support.v7.widget.Toolbar
@@ -65,17 +65,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title"
                 android:textSize="16sp"
-                android:textColor="@color/readed"
                 android:padding="12dp"
+
                 />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView_main"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
             </android.support.v7.widget.RecyclerView>
-
 
         </LinearLayout>
         </demo.liuchen.com.zhihudiary.view.myView.AutoLoadScrollView>
