@@ -1,6 +1,5 @@
 package demo.liuchen.com.zhihudiary.view.fragment;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,7 +14,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,13 +33,11 @@ import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.presenter.PresenterMain;
 import demo.liuchen.com.zhihudiary.presenter.listener.LoadMoreComplete;
-import demo.liuchen.com.zhihudiary.util.NetWorkUtils;
 import demo.liuchen.com.zhihudiary.util.ScreenSizeUtils;
 import demo.liuchen.com.zhihudiary.view.IViewMain;
 import demo.liuchen.com.zhihudiary.view.activity.StoryActivity;
 import demo.liuchen.com.zhihudiary.view.myView.AutoLoadScrollView;
 import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
-
 
 /**
  * Created by meng on 2016/11/4.
@@ -72,6 +68,7 @@ public class MainFragment extends Fragment implements IViewMain ,LoadMoreComplet
     private boolean isLoading = false;
     private String date;
     private int nowPages = 1;
+    private boolean isBannerLoaded = false;
 
     //Attach方法中获取宿主Activity的上下文
     @Override
@@ -84,7 +81,7 @@ public class MainFragment extends Fragment implements IViewMain ,LoadMoreComplet
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       
+
         view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
         presenterMain = new PresenterMain(this);
@@ -102,22 +99,26 @@ public class MainFragment extends Fragment implements IViewMain ,LoadMoreComplet
     //首页轮播图返回数据并回调以下方法:
     @Override
     public void bannerDataGot(NewsBean bean) {
-        date = bean.getDate();
-        BannerAdapter bannerAdapter = new BannerAdapter(bean, context);
-        viewPager.setAdapter(bannerAdapter);
-        indicator.setViewPager(viewPager);
+        if (!isBannerLoaded) {
+            date = bean.getDate();
+            isBannerLoaded = true;
+            BannerAdapter bannerAdapter = new BannerAdapter(bean, context);
+            viewPager.setOffscreenPageLimit(4);
+            viewPager.setAdapter(bannerAdapter);
+            indicator.setViewPager(viewPager);
 
-        new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-                viewPager.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.setCurrentItem(++index % 5);
-                    }
-                });
-            }
-        }, 4000, 4000);
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    viewPager.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            viewPager.setCurrentItem(++index % 5);
+                        }
+                    });
+                }
+            }, 4000, 4000);
+        }
     }
 
     //首页消息列表返回数据并回调以下方法:
@@ -166,7 +167,7 @@ public class MainFragment extends Fragment implements IViewMain ,LoadMoreComplet
 
     @Override
     public void loadMoreFailure() {
-        Toast.makeText(context, "获取数据失败...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "加载失败...", Toast.LENGTH_SHORT).show();
         isLoading = false;
     }
 

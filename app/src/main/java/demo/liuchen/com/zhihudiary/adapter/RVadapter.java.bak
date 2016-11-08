@@ -85,12 +85,18 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         viewHolder.textView.setText(newsBean.getStories().get(position).getTitle());
 
-        Picasso.with(context)
+        Bitmap bm = LruUtil.getBitmap(lruCache,
+                newsBean.getStories().get(position).getImages().get(0),
+                filePath+newsBean.getStories().get(position).getImages().get(0));
+        if(bm != null){
+            viewHolder.imageView.setImageBitmap(bm);
+        } else {
+            Picasso.with(context)
                     .load(newsBean.getStories().get(position).getImages().get(0))
                     .into(viewHolder.imageView);
 
 
-       
+        }
         
         if(position == newsBean.getStories().size()-2){
             loadMoreComplete.LoadMoreCompleted();
