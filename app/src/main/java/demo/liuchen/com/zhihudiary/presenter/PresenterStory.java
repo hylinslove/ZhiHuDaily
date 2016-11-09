@@ -1,8 +1,8 @@
 package demo.liuchen.com.zhihudiary.presenter;
 
-import demo.liuchen.com.zhihudiary.model.bean.StoryBean;
-import demo.liuchen.com.zhihudiary.model.impl.ModelStory;
-import demo.liuchen.com.zhihudiary.model.model.IModelStory;
+import demo.liuchen.com.zhihudiary.modle.bean.StoryBean;
+import demo.liuchen.com.zhihudiary.modle.impl.ModelStory;
+import demo.liuchen.com.zhihudiary.modle.model.IModelStory;
 import demo.liuchen.com.zhihudiary.presenter.listener.DetailGetListener;
 import demo.liuchen.com.zhihudiary.view.IViewStory;
 

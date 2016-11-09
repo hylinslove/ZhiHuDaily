@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import demo.liuchen.com.zhihudiary.R;
-import demo.liuchen.com.zhihudiary.model.bean.StoryBean;
+import demo.liuchen.com.zhihudiary.modle.bean.StoryBean;
 import demo.liuchen.com.zhihudiary.presenter.PresenterStory;
 import demo.liuchen.com.zhihudiary.util.HtmlUtils;
 import demo.liuchen.com.zhihudiary.view.IViewStory;

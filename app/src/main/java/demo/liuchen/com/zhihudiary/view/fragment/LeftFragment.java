@@ -1,7 +1,6 @@
 package demo.liuchen.com.zhihudiary.view.fragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -16,7 +15,7 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import demo.liuchen.com.zhihudiary.R;
-import demo.liuchen.com.zhihudiary.model.bean.TitleBean;
+import demo.liuchen.com.zhihudiary.modle.bean.TitleBean;
 import demo.liuchen.com.zhihudiary.presenter.PresenterTitle;
 import demo.liuchen.com.zhihudiary.view.IViewTitle;
 
@@ -71,8 +70,6 @@ public class LeftFragment extends Fragment implements IViewTitle {
                 android.R.layout.simple_list_item_1, titles);
 
         listview.setAdapter(adapter);
-
-
         //测量listview方法
         listview.setLayoutParams(getListParams());
         //解决显示不在顶部的问题
@@ -84,12 +81,15 @@ public class LeftFragment extends Fragment implements IViewTitle {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //item的监听事件得到id传给碎片网址加载下一项
                 themeId = titleBean.getOthers().get(position).getId();
-
             }
         });
 
     }
 
+    @Override
+    public void TitleFailed() {
+        Toast.makeText(getActivity(), "获取失败，请检查网络", Toast.LENGTH_SHORT).show();
+    }
 
     //计算出List高度大小 解决显示不全的问题
     public ViewGroup.LayoutParams getListParams() {
@@ -106,11 +106,6 @@ public class LeftFragment extends Fragment implements IViewTitle {
         params.height = totalHeight + (listview.getDividerHeight() * (listAdapter.getCount() - 1));
 
         return params;
-    }
-
-    @Override
-    public void TitleFailed() {
-        Toast.makeText(getActivity(), "获取失败，请检查网络", Toast.LENGTH_SHORT).show();
     }
 
 }

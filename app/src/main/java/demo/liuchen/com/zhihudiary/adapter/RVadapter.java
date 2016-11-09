@@ -2,31 +2,19 @@ package demo.liuchen.com.zhihudiary.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 import android.support.v4.util.LruCache;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
-
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
 import demo.liuchen.com.zhihudiary.R;
-import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
-import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
+import demo.liuchen.com.zhihudiary.modle.bean.BeforeBean;
+import demo.liuchen.com.zhihudiary.modle.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.presenter.listener.LoadMoreComplete;
 import demo.liuchen.com.zhihudiary.util.LruUtil;
 

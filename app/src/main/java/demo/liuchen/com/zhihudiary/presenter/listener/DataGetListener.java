@@ -1,7 +1,6 @@
 package demo.liuchen.com.zhihudiary.presenter.listener;
 
-import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
-import demo.liuchen.com.zhihudiary.model.bean.StoryBean;
+import demo.liuchen.com.zhihudiary.modle.bean.NewsBean;
 
 /**
  * Created by meng on 2016/11/3.

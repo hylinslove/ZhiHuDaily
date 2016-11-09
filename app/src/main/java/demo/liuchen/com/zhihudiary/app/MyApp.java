@@ -4,15 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.greendao.Before;
-import com.greendao.BeforeDao;
 import com.greendao.DaoMaster;
 import com.greendao.DaoSession;
-import com.greendao.NewsDao;
-import com.greendao.StoryDao;
-
-import demo.liuchen.com.zhihudiary.R;
-
 
 
 /**
@@ -21,52 +14,46 @@ import demo.liuchen.com.zhihudiary.R;
 
 public class MyApp extends Application {
     public static Context context;
+    public static DaoSession newSession;
+
+    public static DaoSession storySession;
+
+    private static DaoMaster beforeMaster;
+    public static DaoSession beforeSession;
     @Override
     public void onCreate() {
         super.onCreate();
         context = this;
+
+        initNewsDao();
+        initBeforeDao();
+        initStoryDao();
+
     }
 
 
-    public static NewsDao getNewsDao() {
-        SQLiteDatabase newsDB ;
-        DaoMaster newsMaster;
-        DaoSession newSession;
-        NewsDao newsDao;
+    public static void initNewsDao() {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context,"news_db",null);
-        newsDB = helper.getWritableDatabase();
-        newsMaster = new DaoMaster(newsDB);
+        SQLiteDatabase newsDB = helper.getWritableDatabase();
+        DaoMaster newsMaster = new DaoMaster(newsDB);
         newSession = newsMaster.newSession();
-        newsDao = newSession.getNewsDao();
 
-        return newsDao;
     }
 
-    public static StoryDao getStoryDao() {
-        SQLiteDatabase storyDB ;
-        DaoMaster storyMaster;
-        DaoSession storySession;
-        StoryDao storyDao;
+    public static void initStoryDao() {
         DaoMaster.DevOpenHelper helper2 = new DaoMaster.DevOpenHelper(context,"story_db",null);
-        storyDB = helper2.getWritableDatabase();
-        storyMaster = new DaoMaster(storyDB);
+        SQLiteDatabase storyDB = helper2.getWritableDatabase();
+        DaoMaster storyMaster = new DaoMaster(storyDB);
         storySession = storyMaster.newSession();
-        storyDao = storySession.getStoryDao();
 
-        return storyDao;
     }
 
-    public static BeforeDao getBeforeDao(){
-        SQLiteDatabase beforeDB ;
-        DaoMaster beforeMaster;
-        DaoSession beforeSession;
-        BeforeDao beforeDao;
+    public static void initBeforeDao(){
         DaoMaster.DevOpenHelper helper3 = new DaoMaster.DevOpenHelper(context,"before_db",null);
-        beforeDB = helper3.getWritableDatabase();
+        SQLiteDatabase beforeDB = helper3.getWritableDatabase();
         beforeMaster = new DaoMaster(beforeDB);
         beforeSession = beforeMaster.newSession();
-        beforeDao = beforeSession.getBeforeDao();
-        return beforeDao;
+
     }
 
 

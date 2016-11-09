@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import demo.liuchen.com.zhihudiary.R;
-import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
+import demo.liuchen.com.zhihudiary.modle.bean.NewsBean;
 
 /**
  * Created by meng on 2016/10/13.

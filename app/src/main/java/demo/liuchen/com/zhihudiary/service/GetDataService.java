@@ -1,10 +1,7 @@
 package demo.liuchen.com.zhihudiary.service;
 
-import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
-import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
-import demo.liuchen.com.zhihudiary.model.bean.StoryBean;
-import demo.liuchen.com.zhihudiary.model.bean.ThemeBean;
-import demo.liuchen.com.zhihudiary.model.bean.TitleBean;
+import demo.liuchen.com.zhihudiary.modle.bean.ThemeBean;
+import demo.liuchen.com.zhihudiary.modle.bean.TitleBean;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import rx.Observable;

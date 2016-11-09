@@ -1,9 +1,7 @@
 package demo.liuchen.com.zhihudiary.view;
 
-import java.util.List;
-
-import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
-import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
+import demo.liuchen.com.zhihudiary.modle.bean.BeforeBean;
+import demo.liuchen.com.zhihudiary.modle.bean.NewsBean;
 
 /**
  * Created by meng on 2016/11/3.

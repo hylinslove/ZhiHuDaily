@@ -1,6 +1,6 @@
 package demo.liuchen.com.zhihudiary.view;
 
-import demo.liuchen.com.zhihudiary.model.bean.StoryBean;
+import demo.liuchen.com.zhihudiary.modle.bean.StoryBean;
 
 /**
  * Created by meng on 2016/11/4.

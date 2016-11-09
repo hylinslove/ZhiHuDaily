@@ -1,7 +1,7 @@
 package demo.liuchen.com.zhihudiary.presenter;
 
-import demo.liuchen.com.zhihudiary.model.bean.TitleBean;
-import demo.liuchen.com.zhihudiary.model.impl.ModelTitle;
+import demo.liuchen.com.zhihudiary.modle.bean.TitleBean;
+import demo.liuchen.com.zhihudiary.modle.impl.ModelTitle;
 import demo.liuchen.com.zhihudiary.presenter.listener.TitleDataListener;
 import demo.liuchen.com.zhihudiary.view.IViewTitle;
 
@@ -23,7 +23,6 @@ public class PresenterTitle {
             @Override
             public void dataGot(TitleBean titleBean) {
                 iViewTitle.TitleDataGot(titleBean);
-
             }
 
             @Override
