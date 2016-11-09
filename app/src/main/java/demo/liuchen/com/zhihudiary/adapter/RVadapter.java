@@ -89,9 +89,6 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .load(newsBean.getStories().get(position).getImages().get(0))
                     .into(viewHolder.imageView);
 
-
-       
-        
         if(position == newsBean.getStories().size()-2){
             loadMoreComplete.LoadMoreCompleted();
         }

@@ -3,6 +3,7 @@ package demo.liuchen.com.zhihudiary.service;
 import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
 import demo.liuchen.com.zhihudiary.model.bean.NewsBean;
 import demo.liuchen.com.zhihudiary.model.bean.StoryBean;
+import demo.liuchen.com.zhihudiary.model.bean.ThemeBean;
 import demo.liuchen.com.zhihudiary.model.bean.TitleBean;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -25,4 +26,7 @@ public interface GetDataService {
 
     @GET("api/4/themes")
     Observable<TitleBean> getTitlesData();
+
+    @GET("api/4/themes/{id}")
+    Observable<ThemeBean> getthemeDetails(@Path("id") int id);
 }

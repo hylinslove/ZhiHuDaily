@@ -1,5 +1,6 @@
 package demo.liuchen.com.zhihudiary.model.model;
 
+
 import demo.liuchen.com.zhihudiary.presenter.listener.TitleDataListener;
 
 /**

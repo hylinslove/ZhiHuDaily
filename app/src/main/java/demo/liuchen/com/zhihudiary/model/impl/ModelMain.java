@@ -1,16 +1,11 @@
 package demo.liuchen.com.zhihudiary.model.impl;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.greendao.Before;
 import com.greendao.BeforeDao;
 import com.greendao.News;
-import com.greendao.NewsDao;
-
 
 import java.util.List;
-
 
 import demo.liuchen.com.zhihudiary.app.MyApp;
 import demo.liuchen.com.zhihudiary.model.bean.BeforeBean;
@@ -19,11 +14,7 @@ import demo.liuchen.com.zhihudiary.model.model.IModelMain;
 import demo.liuchen.com.zhihudiary.presenter.listener.BeforeGetListener;
 import demo.liuchen.com.zhihudiary.presenter.listener.DataGetListener;
 import demo.liuchen.com.zhihudiary.service.GetDataService;
-import demo.liuchen.com.zhihudiary.util.Constant;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+import demo.liuchen.com.zhihudiary.util.RetrofitUtil;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -36,12 +27,6 @@ import rx.schedulers.Schedulers;
 public class ModelMain implements IModelMain {
 
     private Gson gson = new Gson();
-    private Retrofit retrofit;
-    Retrofit.Builder builder = new Retrofit.Builder()
-            .baseUrl(Constant.BaseUrl)
-//            .addConverterFactory(GsonConverterFactory.create())
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
 
     @Override
     public void getData(final DataGetListener dataGetListener) {
@@ -58,8 +43,7 @@ public class ModelMain implements IModelMain {
 
         }
 
-        retrofit = builder.build();
-        retrofit.create(GetDataService.class).getNewsBean()
+        RetrofitUtil.getScalarsRetrofit().create(GetDataService.class).getNewsBean()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(new Func1<String, NewsBean>() {
@@ -99,8 +83,7 @@ public class ModelMain implements IModelMain {
             return;
         }
 
-        Retrofit retrofit2 = builder.build();
-        retrofit2.create(GetDataService.class).getBeforeNews(date)
+        RetrofitUtil.getScalarsRetrofit().create(GetDataService.class).getBeforeNews(date)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(new Func1<String, BeforeBean>() {

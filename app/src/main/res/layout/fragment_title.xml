@@ -1,0 +1,98 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TitleFragemet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="demo.liuchen.com.zhihudiary.view.fragment.TitleFragment">
+
+    <!--主题头条界面-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_Title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/nav_icon"
+        app:title="Title"
+        app:titleTextColor="@color/white" />
+
+    <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
+        android:id="@+id/refresh_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ededed">
+
+        <demo.liuchen.com.zhihudiary.view.myView.AutoLoadScrollView
+            android:id="@+id/scroll_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/image_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:id="@+id/Title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/image_title"
+                        android:layout_margin="20dp"
+                        android:text="asdf"
+                        android:textColor="@color/white"
+                        android:textSize="23sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="主编" />
+
+                    <ImageView
+                        android:id="@+id/Author_Image1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/nav_icon" />
+
+                    <ImageView
+                        android:id="@+id/Author_Image2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/nav_icon" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/listView_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </demo.liuchen.com.zhihudiary.view.myView.AutoLoadScrollView>
+    </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
+
+
+</LinearLayout>
