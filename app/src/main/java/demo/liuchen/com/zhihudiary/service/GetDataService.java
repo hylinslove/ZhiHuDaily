@@ -24,6 +24,6 @@ public interface GetDataService {
     @GET("api/4/themes")
     Observable<TitleBean> getTitlesData();
 
-    @GET("api/4/themes/{id}")
-    Observable<ThemeBean> getthemeDetails(@Path("id") int id);
+    @GET("api/4/theme/{id}")
+    Observable<ThemeBean> getThemeData(@Path("id") int id);
 }

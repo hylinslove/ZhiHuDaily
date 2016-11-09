@@ -30,16 +30,14 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private NewsBean newsBean;
     private LayoutInflater layoutInflater;
     private LoadMoreComplete loadMoreComplete;
-    private LruCache<String,Bitmap> lruCache ;
-    private String filePath;
+
 
     public RVadapter(Context context, NewsBean newsBean,LoadMoreComplete loadMoreComplete) {
         this.context = context;
         this.newsBean = newsBean;
         this.loadMoreComplete = loadMoreComplete;
         layoutInflater = LayoutInflater.from(context);
-        lruCache = LruUtil.getLruCache();
-        filePath = context.getExternalCacheDir().getAbsolutePath();
+
 
     }
 

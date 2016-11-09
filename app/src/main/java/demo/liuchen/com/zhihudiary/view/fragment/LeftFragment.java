@@ -17,6 +17,7 @@ import android.widget.Toast;
 import demo.liuchen.com.zhihudiary.R;
 import demo.liuchen.com.zhihudiary.modle.bean.TitleBean;
 import demo.liuchen.com.zhihudiary.presenter.PresenterTitle;
+import demo.liuchen.com.zhihudiary.presenter.listener.ReplaceFragmentListener;
 import demo.liuchen.com.zhihudiary.view.IViewTitle;
 
 
@@ -25,17 +26,19 @@ public class LeftFragment extends Fragment implements IViewTitle {
     private Context context;
     private View view;
     private ScrollView scrollview;
-
     private PresenterTitle presenterTitle;
-
     private ListView listview;
     //theme网址的后缀名
     private int themeId;
+
+    private ReplaceFragmentListener listener;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.context = context;
+        listener = (ReplaceFragmentListener) getActivity();
+
 
     }
 
@@ -81,6 +84,7 @@ public class LeftFragment extends Fragment implements IViewTitle {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //item的监听事件得到id传给碎片网址加载下一项
                 themeId = titleBean.getOthers().get(position).getId();
+                listener.replaceFragment(themeId);
             }
         });
 

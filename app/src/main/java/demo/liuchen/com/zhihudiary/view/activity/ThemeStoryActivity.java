@@ -7,42 +7,26 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.greendao.Story;
-import com.squareup.picasso.Picasso;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import demo.liuchen.com.zhihudiary.R;
 import demo.liuchen.com.zhihudiary.modle.bean.StoryBean;
 import demo.liuchen.com.zhihudiary.presenter.PresenterStory;
 import demo.liuchen.com.zhihudiary.util.HtmlUtils;
 import demo.liuchen.com.zhihudiary.view.IViewStory;
 
-public class StoryActivity extends AppCompatActivity implements IViewStory {
+public class ThemeStoryActivity extends AppCompatActivity implements IViewStory{
 
-    @Bind(R.id.toolBar_content)
-    Toolbar toolbar;
-    @Bind(R.id.image_content)
-    ImageView imageView;
-    @Bind(R.id.text_content)
-    TextView titleText;
-    @Bind(R.id.imgeSrc_content)
-    TextView secTitle;
-    @Bind(R.id.web_content)
-    WebView webView;
-
+    private WebView webView;
+    private Toolbar toolbar;
     private Intent intent;
     private PresenterStory presenterStory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_story);
-        ButterKnife.bind(this);
+        setContentView(R.layout.activity_theme_story);
+        webView = (WebView) findViewById(R.id.web_theme);
 
         initToolbar();
         initWebView();
@@ -50,22 +34,18 @@ public class StoryActivity extends AppCompatActivity implements IViewStory {
 
         presenterStory = new PresenterStory(this);
         presenterStory.getData();
+
     }
+
+
 
     @Override
     public int getContentId() {
-        return intent.getIntExtra("id", -1);
+        return intent.getIntExtra("id",0);
     }
 
     @Override
     public void setContent(StoryBean storyBean) {
-        titleText.setText(storyBean.getTitle());
-        secTitle.setText(storyBean.getImage_source());
-
-        Picasso.with(this)
-                .load(storyBean.getImage())
-                .into(imageView);
-
         webView.loadData(HtmlUtils.getHtmlCode(storyBean.getBody(), storyBean.getCss().get(0)),
                 "text/html; charset=UTF-8",
                 null);
@@ -77,6 +57,7 @@ public class StoryActivity extends AppCompatActivity implements IViewStory {
     }
 
     private void initWebView() {
+
         webView.setScrollbarFadingEnabled(true);
 
         webView.setVerticalScrollBarEnabled(false);
@@ -89,15 +70,14 @@ public class StoryActivity extends AppCompatActivity implements IViewStory {
     }
 
     private void initToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolBar_theme_story);
         toolbar.setTitle("内容");
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StoryActivity.this.finish();
+                ThemeStoryActivity.this.finish();
             }
         });
     }
-
-
 }

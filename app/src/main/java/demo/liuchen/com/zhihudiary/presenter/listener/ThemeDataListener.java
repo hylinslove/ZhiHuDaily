@@ -6,7 +6,7 @@ import demo.liuchen.com.zhihudiary.modle.bean.ThemeBean;
  * Created by Administrator on 2016/11/8.
  */
 
-public interface DetailThemeListener {
+public interface ThemeDataListener {
     void detailGot(ThemeBean bean);
     void detailGotFailure();
 

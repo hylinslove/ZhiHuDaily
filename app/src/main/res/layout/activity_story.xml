@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/back_icon"
         app:title="内容"
         app:titleTextColor="@color/white"
         />

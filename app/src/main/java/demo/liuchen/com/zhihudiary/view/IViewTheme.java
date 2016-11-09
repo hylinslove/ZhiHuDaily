@@ -7,7 +7,7 @@ import demo.liuchen.com.zhihudiary.modle.bean.ThemeBean;
  */
 
 public interface IViewTheme {
-    int getContentId();
-    void setContent(ThemeBean themeBean);
-    void detailGotFailure();
+
+    void dataGot(ThemeBean themeBean);
+    void dataGotFailure();
 }
