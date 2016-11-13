@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,12 +72,16 @@ public class RVadapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         viewHolder.textView.setText(newsBean.getStories().get(position).getTitle());
 
+
+
         Picasso.with(context)
                     .load(newsBean.getStories().get(position).getImages().get(0))
                     .into(viewHolder.imageView);
 
-        if(position == newsBean.getStories().size()-2){
-            loadMoreComplete.LoadMoreCompleted();
+        if(loadMoreComplete!=null) {
+            if (position == newsBean.getStories().size() - 2) {
+                loadMoreComplete.LoadMoreCompleted();
+            }
         }
 
     }

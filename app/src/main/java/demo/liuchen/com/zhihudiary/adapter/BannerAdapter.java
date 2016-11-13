@@ -2,6 +2,7 @@ package demo.liuchen.com.zhihudiary.adapter;
 
 import android.content.Context;
 
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import java.util.Map;
 
 import demo.liuchen.com.zhihudiary.R;
 import demo.liuchen.com.zhihudiary.modle.bean.NewsBean;
+import demo.liuchen.com.zhihudiary.view.activity.StoryActivity;
 
 /**
  * Created by meng on 2016/10/13.
@@ -46,7 +48,7 @@ public class BannerAdapter extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(ViewGroup container, final int position) {
 
         view = new View(context);
         view = inflater.inflate(R.layout.banner_item, null);
@@ -72,6 +74,16 @@ public class BannerAdapter extends PagerAdapter {
         }
 
         container.addView(view);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int id = newsBean.getTop_stories().get(position).getId();
+                Intent intent = new Intent(context, StoryActivity.class);
+                intent.putExtra("id", id);
+                context.startActivity(intent);
+            }
+        });
 
         return view;
 

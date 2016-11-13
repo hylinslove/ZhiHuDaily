@@ -2,6 +2,7 @@ package demo.liuchen.com.zhihudiary.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.greendao.DaoMaster;
@@ -20,6 +21,10 @@ public class MyApp extends Application {
 
     private static DaoMaster beforeMaster;
     public static DaoSession beforeSession;
+
+    public static SharedPreferences.Editor editor;
+    public static SharedPreferences sp;
+//    private boolean isFirst = true ;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -28,6 +33,19 @@ public class MyApp extends Application {
         initNewsDao();
         initBeforeDao();
         initStoryDao();
+
+        initSharePreference();
+
+    }
+
+    private void initSharePreference() {
+        sp = getSharedPreferences("fav",Context.MODE_PRIVATE);
+        editor = sp.edit();
+//        isFirst = sp.getBoolean("isFirst",true);
+//        if(isFirst) {
+//            editor.putBoolean("isFirst",false);
+//            editor.putInt("num",0);
+//        }
 
     }
 

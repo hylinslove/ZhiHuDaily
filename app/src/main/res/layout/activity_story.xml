@@ -14,7 +14,23 @@
         app:navigationIcon="@drawable/back_icon"
         app:title="内容"
         app:titleTextColor="@color/white"
-        />
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:padding="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:id="@+id/star"
+                android:src="@drawable/star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
     <ScrollView
         android:layout_below="@id/toolBar_content"
         android:layout_width="match_parent"

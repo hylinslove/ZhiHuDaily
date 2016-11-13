@@ -2,6 +2,7 @@ package demo.liuchen.com.zhihudiary.view.activity;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import demo.liuchen.com.zhihudiary.R;
 import demo.liuchen.com.zhihudiary.presenter.listener.ReplaceFragmentListener;
@@ -114,4 +116,9 @@ public class MainActivity extends AppCompatActivity implements ReplaceFragmentLi
         });
     }
 
+    public void on(View view) {
+        Intent intent  = new Intent(this,ILikeActivity.class);
+        startActivity(intent);
+        drawer.closeDrawer(GravityCompat.START);
+    }
 }

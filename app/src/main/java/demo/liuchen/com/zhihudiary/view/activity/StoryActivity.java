@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -17,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import demo.liuchen.com.zhihudiary.R;
+import demo.liuchen.com.zhihudiary.app.MyApp;
 import demo.liuchen.com.zhihudiary.modle.bean.StoryBean;
 import demo.liuchen.com.zhihudiary.presenter.PresenterStory;
 import demo.liuchen.com.zhihudiary.util.HtmlUtils;
@@ -34,9 +36,12 @@ public class StoryActivity extends AppCompatActivity implements IViewStory {
     TextView secTitle;
     @Bind(R.id.web_content)
     WebView webView;
+    @Bind(R.id.star)
+    ImageView imageStar;
 
     private Intent intent;
     private PresenterStory presenterStory;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +51,13 @@ public class StoryActivity extends AppCompatActivity implements IViewStory {
 
         initToolbar();
         initWebView();
+        initStar();
         intent = getIntent();
 
         presenterStory = new PresenterStory(this);
         presenterStory.getData();
     }
+
 
     @Override
     public int getContentId() {
@@ -59,6 +66,7 @@ public class StoryActivity extends AppCompatActivity implements IViewStory {
 
     @Override
     public void setContent(StoryBean storyBean) {
+        id = intent.getIntExtra("id", -1);
         titleText.setText(storyBean.getTitle());
         secTitle.setText(storyBean.getImage_source());
 
@@ -95,6 +103,20 @@ public class StoryActivity extends AppCompatActivity implements IViewStory {
             @Override
             public void onClick(View view) {
                 StoryActivity.this.finish();
+            }
+        });
+    }
+    private void initStar() {
+        imageStar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageStar.setEnabled(false);
+                int nums = MyApp.sp.getInt("num",0)+1;
+                MyApp.editor.putInt("num",nums);
+                MyApp.editor.commit();
+                Log.e("TAG","PUT:"+MyApp.sp.getInt("num",0) );
+                MyApp.editor.putInt(MyApp.sp.getInt("num",0)+"",id);
+                MyApp.editor.commit();
             }
         });
     }

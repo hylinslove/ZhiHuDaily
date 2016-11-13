@@ -32,39 +32,24 @@ public class SplashActivity extends Activity {
         timeText.setVisibility(View.INVISIBLE);
 
         animations();
-
         backgroundAnimator();
 
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                new CountDownTimer(4000,1000){
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        //timeText白色的框设置可见
-                        timeText.setText("广告剩余 " +--count+ "S");
-                        timeText.setVisibility(View.VISIBLE);
+                if(count-- >0){
+                    timeText.setVisibility(View.VISIBLE);
+                    timeText.setText("广告剩余:"+count+ "s");
+                    handler.postDelayed(this,1000);
+                } else {
+                    if (!SplashActivity.this.isFinishing()) {
+                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                        SplashActivity.this.finish();
                     }
-
-                    @Override
-                    public void onFinish() {
-                        if(!SplashActivity.this.isFinishing()){
-                            startActivity(new Intent(SplashActivity.this,MainActivity.class));
-                            finish();
-                        }
-
-                    }
-                }.start();
-
+                }
             }
-        },3000);
-
-
+        },2000);
     }
-
-
-
-
 
 
     //淡入效果

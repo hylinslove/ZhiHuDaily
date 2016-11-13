@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ilike"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="demo.liuchen.com.zhihudiary.view.activity.ILikeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar_like"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="@drawable/back_icon"
+        app:title="我的收藏"
+        app:titleTextColor="@color/white"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_like"
+        android:layout_below="@id/toolBar_like"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

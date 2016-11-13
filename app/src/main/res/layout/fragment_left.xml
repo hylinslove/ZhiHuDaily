@@ -42,6 +42,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:onClick="on"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/colorPrimary"
@@ -51,7 +52,6 @@
                     android:layout_height="18dp"
                     android:layout_margin="15dp"
                     android:src="@drawable/btn_rating_star"
-
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -60,18 +60,18 @@
                     android:layout_marginLeft="15dp"
                     android:text="我的收藏"
                     android:textColor="@color/white"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/download"
-                    android:layout_marginLeft="10sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="离线下载"
-                    android:layout_marginTop="15dp"
-                    android:textColor="@color/white"
-                    />
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/download"-->
+                    <!--android:layout_marginLeft="10sp"/>-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="离线下载"-->
+                    <!--android:layout_marginTop="15dp"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--/>-->
 
 
             </LinearLayout>
