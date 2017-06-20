@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\vpi__tab_indicator.xml",
+        "source": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable\\vpi__tab_indicator.xml"
+    },
+    {
         "merged": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\vpi__tab_indicator.xml",
         "source": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable\\vpi__tab_indicator.xml"
     }

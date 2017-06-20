@@ -4,6 +4,14 @@
         "source": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__light_theme.xml"
     },
     {
+        "merged": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\vpi__light_theme.xml",
+        "source": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__light_theme.xml"
+    },
+    {
+        "merged": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\vpi__dark_theme.xml",
+        "source": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__dark_theme.xml"
+    },
+    {
         "merged": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\vpi__dark_theme.xml",
         "source": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__dark_theme.xml"
     }

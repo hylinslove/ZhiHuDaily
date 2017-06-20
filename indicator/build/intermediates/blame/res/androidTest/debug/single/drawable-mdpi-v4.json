@@ -4,8 +4,16 @@
         "source": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\vpi__tab_unselected_holo.9.png"
     },
     {
+        "merged": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_unselected_holo.9.png",
+        "source": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\vpi__tab_unselected_holo.9.png"
+    },
+    {
         "merged": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_unselected_focused_holo.9.png",
         "source": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\vpi__tab_unselected_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_selected_holo.9.png",
+        "source": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\vpi__tab_selected_holo.9.png"
     },
     {
         "merged": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_selected_focused_holo.9.png",
@@ -14,6 +22,22 @@
     {
         "merged": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_selected_pressed_holo.9.png",
         "source": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\vpi__tab_selected_pressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_unselected_pressed_holo.9.png",
+        "source": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\vpi__tab_unselected_pressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_selected_focused_holo.9.png",
+        "source": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\vpi__tab_selected_focused_holo.9.png"
+    },
+    {
+        "merged": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_selected_pressed_holo.9.png",
+        "source": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\vpi__tab_selected_pressed_holo.9.png"
+    },
+    {
+        "merged": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_unselected_focused_holo.9.png",
+        "source": "E:\\myLunZi\\zhihu\\ZhiHuDaily\\indicator\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\vpi__tab_unselected_focused_holo.9.png"
     },
     {
         "merged": "H:\\xiangmu\\ZhiHuDiary\\indicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\vpi__tab_selected_holo.9.png",

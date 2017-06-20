@@ -69,6 +69,9 @@
 
                 />
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView_main"
                 android:layout_width="match_parent"
@@ -76,7 +79,7 @@
                 >
 
             </android.support.v7.widget.RecyclerView>
-
+            </RelativeLayout>
         </LinearLayout>
         </demo.liuchen.com.zhihudiary.view.myView.AutoLoadScrollView>
     </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
